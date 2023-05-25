@@ -1,0 +1,72 @@
+h1 {
+  display: flex;
+  justify-content: center;
+  color: white
+}
+#root {
+  display: flex;
+  justify-content: center;
+}
+#main-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-image: url('../img/b0.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 600px;
+}
+
+#form-Input {
+  display: flex;
+  justify-content: center;
+}
+#form-elements {
+  display: flex;
+  justify-content: space-between;
+  width:90%;
+}
+#item-input {
+  width: 40%
+}
+#price-input {
+  width: 35%
+}
+#add-input {
+  width: 15%
+}
+/*#price-input {
+  margin-left: 10px;
+  margin-right: 10px;
+}*/
+
+#ul-list {
+  display:flex;
+  width: 100%;
+  justify-content: center;
+}
+#ul-items{
+  display:flex;
+  width: 90%;
+}
+#li-container {
+  background-color: rgba(255, 255, 255, 0.2)
+}
+#li-items {
+  display:flex;
+  justify-content: space-between;
+}
+#item-content {
+  display: flex;
+  width: 82%;
+}
+#item-text {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 65%
+}
+#item-price {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 35%
+}
