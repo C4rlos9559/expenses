@@ -73,3 +73,10 @@ h1 {
   display: flex;
   flex: 1
 }
+.alert-form {
+  display: flex;
+  justify-content: flex-end;
+}
+#alert-container {
+  margin: 5%
+}

@@ -1,4 +1,3 @@
-import logo from "./logo.svg";
 import React, { Component } from "react";
 import "./App.css";
 import Button from "react-bootstrap/Button";
@@ -9,6 +8,8 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { InputGroup } from "react-bootstrap";
 import "./css/styles.css";
 import ButtonGroup from "react-bootstrap/ButtonGroup";
+import Col from "react-bootstrap/Col";
+import Toast from "react-bootstrap/Toast";
 
 const Header = () => {
   return <h1>Budget planner</h1>;
@@ -44,7 +45,6 @@ const Expense = ({ element, index, deleteItem, updateItem }) => {
       setEditItemValue(element.item);
       setEditItemPrice(element.price);
     } else {
-      console.log(editItemValue + " -> " + editItemPrice);
       updateItem(index, editItemValue, editItemPrice);
       setReading(!reading);
     }
@@ -104,12 +104,14 @@ const Expense = ({ element, index, deleteItem, updateItem }) => {
 const FormInput = ({ onAdd }) => {
   const [item, setItem] = React.useState("");
   const [price, setPrice] = React.useState("");
+  const [showAlert, setShowAlert] = React.useState(false);
   const onChangeItem = (event) => {
     setItem(event.target.value);
   };
   const onChangePrice = (event) => {
     setPrice(event.target.value);
   };
+
   async function addElement(event) {
     event.preventDefault();
     if (item.trim() !== "" && price > 0) {
@@ -117,35 +119,53 @@ const FormInput = ({ onAdd }) => {
       setItem(""); //Clear field
       setPrice(""); //Clear field
     } else {
-      alert("Elemento no válido");
+      setShowAlert(true);
     }
   }
   return (
-    <form id="form-Input">
-      <Stack direction="horizontal" id="form-elements">
-        <Form.Control
-          id="item-input"
-          type="text"
-          onChange={onChangeItem}
-          placeholder="Add an item"
-          value={item}
-        />
-        <InputGroup id="price-input">
-          <InputGroup.Text>$</InputGroup.Text>
+    <React.Fragment>
+      <form id="form-Input">
+        <Stack direction="horizontal" id="form-elements">
           <Form.Control
-            name="price-input"
-            type="number"
-            onChange={onChangePrice}
-            placeholder="Add a price"
-            value={price}
+            id="item-input"
+            type="text"
+            onChange={onChangeItem}
+            placeholder="Add an item"
+            value={item}
           />
-        </InputGroup>
-        <Button variant="primary" onClick={addElement} id="add-input">
-          Add
-        </Button>
-      </Stack>
-      <br />
-    </form>
+          <InputGroup id="price-input">
+            <InputGroup.Text>$</InputGroup.Text>
+            <Form.Control
+              name="price-input"
+              type="number"
+              onChange={onChangePrice}
+              placeholder="Add a price"
+              value={price}
+            />
+          </InputGroup>
+          <Button variant="primary" onClick={addElement} id="add-input">
+            Add
+          </Button>
+        </Stack>
+        <br />
+      </form>
+      <div class="alert-form">
+        <Col md={6} className="mb-2" id="alert-container">
+          <Toast
+            show={showAlert}
+            onClose={() => setShowAlert(false)}
+            delay={3500}
+            autohide
+          >
+            <Toast.Header>
+              <strong className="me-auto">Warning</strong>
+              <small>Just now</small>
+            </Toast.Header>
+            <Toast.Body>Please check the item and price fields</Toast.Body>
+          </Toast>
+        </Col>
+      </div>
+    </React.Fragment>
   );
 };
 const App = () => {
