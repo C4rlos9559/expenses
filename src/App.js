@@ -44,7 +44,7 @@ const Expense = ({ element, index, deleteItem, updateItem }) => {
   const [editItemValue, setEditItemValue] = useState(element.name)
   const [editItemPrice, setEditItemPrice] = useState(element.price)
   const onDelete = () => {
-    reading ? deleteItem(index) : setReading(!reading)
+    reading ? deleteItem(element.name) : setReading(!reading)
   }
   const onUpdate = () => {
     if (reading) {
@@ -122,7 +122,7 @@ const FormInput = ({ onAdd }) => {
   async function addElement(event) {
     event.preventDefault()
     if (item.trim() !== '' && price > 0) {
-      onAdd({ item, price })
+      onAdd(item, price)
       setItem('') //Clear field
       setPrice('') //Clear field
     } else {
@@ -177,17 +177,6 @@ const FormInput = ({ onAdd }) => {
 }
 const App = () => {
   const [items, setItems] = useState([])
-  const deleteItem = (index) => {
-    let temp = [...items]
-    temp.splice(index, 1)
-    setItems(temp)
-  }
-  const updateItem = (index, newItem, newPrice) => {
-    let temp = [...items]
-    temp[index].item = newItem
-    temp[index].price = newPrice
-    setItems(temp)
-  }
 
   useEffect(() => {
     getListItems()
@@ -221,6 +210,7 @@ const App = () => {
     const result = await deleteItemApi(name)
     getListItems()
   }
+
   return (
     <div id='main-container'>
       <React.Fragment>
