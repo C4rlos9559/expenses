@@ -16,7 +16,6 @@ h1 {
   background-size: cover;
   width: 600px;
 }
-
 #form-Input {
   display: flex;
   justify-content: center;
@@ -35,38 +34,42 @@ h1 {
 #add-input {
   width: 15%
 }
-/*#price-input {
-  margin-left: 10px;
-  margin-right: 10px;
-}*/
-
-#ul-list {
+.ul-list {
   display:flex;
   width: 100%;
   justify-content: center;
+  padding-bottom: 5%;
 }
 #ul-items{
   display:flex;
   width: 90%;
 }
 #li-container {
-  background-color: rgba(255, 255, 255, 0.2)
+  background-color: rgba(255, 255, 255, 0.2);
+  width: 100%;
 }
 #li-items {
   display:flex;
   justify-content: space-between;
+  width: 100%
 }
 #item-content {
   display: flex;
-  width: 82%;
+  width: 68%;
 }
 #item-text {
   overflow: hidden;
   text-overflow: ellipsis;
-  width: 65%
+  white-space: nowrap;
+  width:65%
 }
 #item-price {
   overflow: hidden;
   text-overflow: ellipsis;
+  white-space: nowrap;
   width: 35%
+}
+.btn-options {
+  display: flex;
+  flex: 1
 }
