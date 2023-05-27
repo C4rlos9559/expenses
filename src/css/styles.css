@@ -1,13 +1,15 @@
 h1 {
   display: flex;
   justify-content: center;
-  color: white
+  color: white;
 }
+
 #root {
   display: flex;
   justify-content: center;
 }
-#main-container {
+
+.main-container {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -16,67 +18,81 @@ h1 {
   background-size: cover;
   width: 600px;
 }
-#form-Input {
+
+.form-Input {
   display: flex;
   justify-content: center;
 }
-#form-elements {
+
+.form-elements {
   display: flex;
   justify-content: space-between;
-  width:90%;
+  width: 90%;
 }
-#item-input {
-  width: 40%
+
+.item-input {
+  width: 40%;
 }
-#price-input {
-  width: 35%
+
+.price-input {
+  width: 35%;
 }
-#add-input {
-  width: 15%
+
+.add-input {
+  width: 15%;
 }
+
 .ul-list {
-  display:flex;
+  display: flex;
   width: 100%;
   justify-content: center;
   padding-bottom: 5%;
 }
-#ul-items{
-  display:flex;
+
+.ul-items {
+  display: flex;
   width: 90%;
 }
-#li-container {
+
+.li-container {
   background-color: rgba(255, 255, 255, 0.2);
   width: 100%;
 }
-#li-items {
-  display:flex;
+
+.li-items {
+  display: flex;
   justify-content: space-between;
-  width: 100%
+  width: 100%;
 }
-#item-content {
+
+.item-content {
   display: flex;
   width: 68%;
 }
-#item-text {
+
+.item-text {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-  width:65%
+  width: 65%;
 }
-#item-price {
+
+.item-price {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-  width: 35%
+  width: 35%;
 }
+
 .btn-options {
   display: flex;
-  flex: 1
+  flex: 1;
 }
+
 .alert-form {
+  position: absolute;
+  top: 0;
   display: flex;
   justify-content: flex-end;
-}
-#alert-container {
-  margin: 5%
+  right: 0;
 }
